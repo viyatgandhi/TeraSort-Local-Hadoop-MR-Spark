@@ -1,0 +1,4 @@
+
+val lines = sc.textFile("hdfs://ec2-52-36-141-162.us-west-2.compute.amazonaws.com:9000/user/root/input1TB.txt")
+val sort = lines.map(_.split("  ")).map(arr => (arr(0) + "  " + arr(1),arr.mkString("  "))).sortByKey().map(_._2)
+sort.saveAsTextFile("hdfs://ec2-52-36-141-162.us-west-2.compute.amazonaws.com:9000/user/root/output")
